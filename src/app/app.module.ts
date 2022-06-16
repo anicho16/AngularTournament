@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './tournament/hello/hello.component';
 import { RegistrationComponent } from './tournament/registration/registration.component';
 import { BracketsComponent } from './tournament/brackets/brackets.component';
+import { RosterService } from './services/roster.service';
 
 @NgModule({
   declarations: [

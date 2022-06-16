@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Registration } from 'app/tournament/registration';
+import { RegistrationComponent } from '../tournament/registration';
 
 @Injectable()
 export class RosterService {
@@ -15,17 +15,17 @@ export class RosterService {
   }
 
   addContestant(player: string) {
-    if(player == null || player = "") {
-      throw new Error("Player must contain a name.")
+    if(player == null || player == "") {
+      throw new Error("Player must contain a name.");
     }
 
-    for (string contestant of this.contestants) {
+    for (let contestant of this.contestants) {
       if(player.localeCompare(contestant)) {
-        throw new Error("Player already exists.")
+        throw new Error("Player already exists.");
       }
 
       if (angular.equals(player, contestant)) {
-        throw new Error("Angular: Player already exits.")
+        throw new Error("Angular: Player already exits.");
       }
     }
 

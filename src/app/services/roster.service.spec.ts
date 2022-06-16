@@ -10,7 +10,7 @@ describe('RosterService', () => {
     service = TestBed.inject(RosterService);
   });
 
-  it('should be created', () => {
+  it('should be created', inject([RosterService], (service: RosterService) => {
     expect(service).toBeTruthy();
-  });
+  }));
 });
