@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { RegistrationComponent } from '../tournament/registration/registration.component';
 
-@Injectable()
+@Injectable( {
+  providedIn: 'root',
+})
 export class RosterService {
 
   private contestants : string[];

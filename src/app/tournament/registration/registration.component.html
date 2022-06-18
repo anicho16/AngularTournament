@@ -1,1 +1,26 @@
-<p>registration works!</p>
+<h3>
+  Register Players
+</h3>
+
+<div>
+  <h4 class="error">{{message}}</h4>
+  <form (ngSubmit)="registerContestants(playersForm)" #playersForm="ngForm">
+    <<div *ngFor = let player of players; let i = index>
+
+    <div ngModelGroup="player">
+      <div>
+          <input type="text"
+                 ngModel
+                 #playerName="ngModel"
+                 name="name"
+                 placeholder="Contestant 0"
+                 required/>
+      </div>
+      <div class="error" *ngIf="(playerName.dirty  || message) && playerName.invalid">
+        Player name is required
+      </div>
+    </div>
+        </div>
+    <button type="submit">Register Contestants</button>
+  </form>
+</div>
