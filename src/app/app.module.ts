@@ -19,7 +19,7 @@ import { RosterService } from './services/roster.service';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [RosterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

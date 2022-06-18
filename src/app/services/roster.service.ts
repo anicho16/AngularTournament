@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { RegistrationComponent } from '../tournament/registration';
+import { RegistrationComponent } from '../tournament/registration/registration.component';
 
 @Injectable()
 export class RosterService {
 
-  private contestants: Contestants[];
+  private contestants : string[];
+
   constructor() {
     this.contestants = [
     ];
    }
 
-  getContestants() : Contestants[] {
+  getContestants() {
     return this.contestants;
   }
 
@@ -22,10 +23,6 @@ export class RosterService {
     for (let contestant of this.contestants) {
       if(player.localeCompare(contestant)) {
         throw new Error("Player already exists.");
-      }
-
-      if (angular.equals(player, contestant)) {
-        throw new Error("Angular: Player already exits.");
       }
     }
 
