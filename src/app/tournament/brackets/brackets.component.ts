@@ -14,7 +14,7 @@ export class BracketsComponent {
   constructor(private rosterService: RosterService) {
     this.contestants = this.rosterService.getContestants();
     this.roundNumber = 1;
-    this.winners = ["", "", "", "", "", "", ""];
+    this.winners = [];
   }
 
   completeRound(matchForm) {
@@ -26,14 +26,16 @@ export class BracketsComponent {
       this.rosterService.resetContestants();
       this.rosterService.addContestant(this.winners[0]);
       this.rosterService.addContestant(this.winners[1]);
+      this.contestants = this.rosterService.getContestants();
     } else {
       this.rosterService.resetContestants();
       this.rosterService.addContestant(this.winners[0]);
       this.rosterService.addContestant(this.winners[1]);
       this.rosterService.addContestant(this.winners[2]);
       this.rosterService.addContestant(this.winners[3]);
+      this.contestants = this.rosterService.getContestants();
     }
-
+        this.roundNumber++;
   }
 
 }
