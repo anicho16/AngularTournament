@@ -4,8 +4,7 @@ import { RosterService } from '../../services/roster.service';
 @Component({
   selector: 'app-brackets',
   templateUrl: './brackets.component.html',
-  styleUrls: ['./brackets.component.css'],
-  providers: [RosterService]
+  styleUrls: ['./brackets.component.css']
 })
 export class BracketsComponent {
   public contestants : string[];

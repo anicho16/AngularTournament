@@ -1,6 +1,4 @@
 
-<button *ngIf="contestants.length < 1" type="submit">Get Contestants</button>
-
 <div *ngIf="contestants.length > 1" class=form-group>
   <h1>Round: {{roundNumber}}</h1>
   <form #matchForm="ngForm" (ngSubmit)="completeRound(matchForm)">

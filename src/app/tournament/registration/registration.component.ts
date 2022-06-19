@@ -5,8 +5,7 @@ import { RosterService } from '../../services/roster.service';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css'],
-  providers: [RosterService]
+  styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent {
 
