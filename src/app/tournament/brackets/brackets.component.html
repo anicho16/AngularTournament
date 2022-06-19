@@ -1,15 +1,39 @@
-<h1>Round: {{roundNumber}}</h1>
-<!--bug is in here somewhere!!!!-->
-<form #matchForm="ngForm" (ngSubmit)="completeRound(matchForm)">
-<div class="setOne">
-  <div>
-    <input type="radio" name="playerOne"  3
-    [(ngModel)]="contestants[0]" value="contestants[0]">{{contestants[0]}}
-  </div>
-  <div>
-    <input type="radio" name="player2"
-    [(ngModel)]="contestants[1]" value="contestants[1]">{{contestants[1]}}
-  </div>
+
+<button *ngIf="contestants.length < 1" type="submit">Get Contestants</button>
+
+<div *ngIf="contestants.length > 1" class=form-group>
+  <h1>Round: {{roundNumber}}</h1>
+  <form #matchForm="ngForm" (ngSubmit)="completeRound(matchForm)">
+    <div *ngIf="contestants.length == 2" class="match-one">
+      <h2>Match 1</h2>
+      <div>
+        <label class="radio-inline">
+          <input type="radio" name="setOne"
+          [(ngModel)]="contestants[0]" value="{{contestants[0]}}">{{contestants[0]}}
+        </label>
+      </div>
+      <div>
+        <label class="radio-inline">
+          <input type="radio" name="setOne"
+          [(ngModel)]="contestants[1]" value="{{contestants[1]}}">{{contestants[1]}}
+        </label>
+      </div>
+    </div>
+    <div *ngIf="contestants.length == 4" class="match-two">
+      <h2>March 2</h2>
+      <div>
+        <label class="radio-inline">
+          <input type="radio" name="setTwo"
+          [(ngModel)]="contestants[2]" value="{{contestants[2]}}">{{contestants[2]}}
+        </label>
+      </div>
+      <div>
+        <label class="radio-inline">
+          <input type="radio" name="setTwo"
+          [(ngModel)]="contestants[3]" value="{{contestants[3]}}">{{contestants[3]}}
+        </label>
+      </div>
+    </div>
+    <button type="submit">Complete Round</button>
+  </form>
 </div>
-<button type="submit">Complete Round</button>
-</form>

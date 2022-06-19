@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { RosterService } from '../../services/roster.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class BracketsComponent {
   }
 
   completeRound(matchForm) {
-
+    console.log(this.contestants);
   }
 
 }

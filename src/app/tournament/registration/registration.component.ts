@@ -33,9 +33,9 @@ export class RegistrationComponent {
       }
 
       //for debugging: delete before submit
-      let contestantR = this.rosterService.getContestants();
-      for(let contest of contestantR) {
-        console.log("This is the one: " + contest);
+      let contestantRoster = this.rosterService.getContestants();
+      for(let contest of contestantRoster) {
+        console.log("Contestant in rosterService: " + contest);
       }
     }
   }
