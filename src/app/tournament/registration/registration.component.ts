@@ -18,7 +18,7 @@ export class RegistrationComponent {
   constructor(private rosterService: RosterService) {
     this.players = ['', '', '', '', '', '', '', ''];
     this.message = "";
-        this.isShown = false;
+    this.isShown = false;
   }
 
   registerContestants(playersForm){
@@ -27,9 +27,16 @@ export class RegistrationComponent {
     } else {
       console.log(this.players);
       for(let player of this.players) {
-      this.rosterService.addContestant(player)
-      this.isShown = true;
-    }
+        this.rosterService.addContestant(player);
+        //this.message.concat(player);
+        this.isShown = true;
+      }
+
+      //for debugging: delete before submit
+      let contestantR = this.rosterService.getContestants();
+      for(let contest of contestantR) {
+        console.log("This is the one: " + contest);
+      }
     }
   }
 

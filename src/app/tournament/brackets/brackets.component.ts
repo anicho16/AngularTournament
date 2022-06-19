@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { RosterService } from '../../services/roster.service';
 
 @Component({
   selector: 'app-brackets',
   templateUrl: './brackets.component.html',
-  styleUrls: ['./brackets.component.css']
+  styleUrls: ['./brackets.component.css'],
+  providers: [RosterService]
 })
-export class BracketsComponent implements OnInit {
+export class BracketsComponent {
+  public contestants : string[];
+  public roundNumber : number;
+  public winners : string[];
 
-  constructor() { }
+  constructor(private rosterService: RosterService) {
+    this.contestants = this.rosterService.getContestants();
+    this.roundNumber = 1;
+  }
 
-  ngOnInit(): void {
+  completeRound(matchForm) {
+
   }
 
 }

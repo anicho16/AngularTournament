@@ -1,1 +1,15 @@
-<p>brackets works!</p>
+<h1>Round: {{roundNumber}}</h1>
+<!--bug is in here somewhere!!!!-->
+<form #matchForm="ngForm" (ngSubmit)="completeRound(matchForm)">
+<div class="setOne">
+  <div>
+    <input type="radio" name="playerOne"  3
+    [(ngModel)]="contestants[0]" value="contestants[0]">{{contestants[0]}}
+  </div>
+  <div>
+    <input type="radio" name="player2"
+    [(ngModel)]="contestants[1]" value="contestants[1]">{{contestants[1]}}
+  </div>
+</div>
+<button type="submit">Complete Round</button>
+</form>
