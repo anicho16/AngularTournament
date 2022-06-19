@@ -10,14 +10,14 @@
       <div *ngFor= 'let player of players; let i=index; trackBy:trackByFn'>
         <input type="text"
         [(ngModel)] ="players[i]"
-        placeholder="Contestant "
+        placeholder="Contestant {{i}}"
         name = 'player'
         required/>
         <div class="error" *ngIf="(player.dirty  || message) && player.invalid">
           Player name is required
         </div>
       </div>
-    </div>    
+    </div>
     <button type="submit">Register Contestants</button>
   </form>
 </div>
