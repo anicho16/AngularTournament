@@ -1,7 +1,7 @@
 export class Match {
 
-  constructor(public winner: string
-    public loser: string) {}
+  constructor(pulbic number: number,
+    public winner: string) {}
 
     getWinner(): string {
       return this.winner;

@@ -19,17 +19,15 @@ export class RosterService {
   }
 
   addContestant(player: string) {
-  /*  if(player == null || player == "") {
-      throw new Error("Player must contain a name.");
+    if(player == null || player === "") {
+    } else {
+      this.contestants.push(player);
+      console.log(player + " has been added in roster service");
+      console.log("length of cont array in service is " + this.contestants.length);
     }
+  }
 
-    for (let contestant of this.contestants) {
-      if(player.localeCompare(contestant)) {
-        throw new Error("Player already exists.");
-      }
-    } */
-
-    this.contestants.push(player);
-    console.log(player + " has been added in roster service")
+  resetContestants() {
+    this.contestants = [];
   }
 }

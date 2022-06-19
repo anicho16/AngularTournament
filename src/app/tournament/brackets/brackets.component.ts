@@ -14,10 +14,26 @@ export class BracketsComponent {
   constructor(private rosterService: RosterService) {
     this.contestants = this.rosterService.getContestants();
     this.roundNumber = 1;
+    this.winners = ["", "", "", "", "", "", ""];
   }
 
   completeRound(matchForm) {
-    console.log(this.contestants);
+    console.log(this.winners);
+
+    if(this.winners.length == 1) {
+
+    } else if (this.winners.length == 2) {
+      this.rosterService.resetContestants();
+      this.rosterService.addContestant(this.winners[0]);
+      this.rosterService.addContestant(this.winners[1]);
+    } else {
+      this.rosterService.resetContestants();
+      this.rosterService.addContestant(this.winners[0]);
+      this.rosterService.addContestant(this.winners[1]);
+      this.rosterService.addContestant(this.winners[2]);
+      this.rosterService.addContestant(this.winners[3]);
+    }
+
   }
 
 }

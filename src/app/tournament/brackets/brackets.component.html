@@ -2,50 +2,59 @@
 <div *ngIf="contestants.length > 1" class=form-group>
   <h1>Round: {{roundNumber}}</h1>
   <form #matchForm="ngForm" (ngSubmit)="completeRound(matchForm)">
-    <div *ngIf="contestants.length >= 2" >
+    <div *ngIf="contestants.length >= 2" class="match-one">
       <h3>Match 1</h3>
-      <div class="radio-group">
+      <div>
         <label class="radio-inline">
           <input type="radio" name="setOne"
           [(ngModel)]="contestants[0]" value="{{contestants[0]}}">{{contestants[0]}}
         </label>
+      </div>
+      <div>
         <label class="radio-inline">
           <input type="radio" name="setOne"
           [(ngModel)]="contestants[1]" value="{{contestants[1]}}">{{contestants[1]}}
         </label>
       </div>
     </div>
-    <div *ngIf="contestants.length >= 4" >
+    <div *ngIf="contestants.length >= 4" class="match-two">
       <h3>March 2</h3>
-      <div class="radio-group">
+      <div>
         <label class="radio-inline">
           <input type="radio" name="setTwo"
           [(ngModel)]="contestants[2]" value="{{contestants[2]}}">{{contestants[2]}}
         </label>
+      </div>
+      <div>
         <label class="radio-inline">
           <input type="radio" name="setTwo"
           [(ngModel)]="contestants[3]" value="{{contestants[3]}}">{{contestants[3]}}
         </label>
       </div>
     </div>
+
     <div *ngIf="contestants.length == 8" class="match-one">
       <h3>Match 3</h3>
-      <div <!--class="radio-group"-->>
+      <div>
         <label class="radio-inline">
           <input type="radio" name="setThree"
           [(ngModel)]="contestants[4]" value="{{contestants[4]}}">{{contestants[4]}}
         </label>
+      </div>
+      <div>
         <label class="radio-inline">
           <input type="radio" name="setThree"
           [(ngModel)]="contestants[5]" value="{{contestants[5]}}">{{contestants[5]}}
         </label>
       </div>
       <h3>March 4</h3>
-      <div <!--class="radio-group"-->>
+      <div>
         <label class="radio-inline">
           <input type="radio" name="setFour"
           [(ngModel)]="contestants[6]" value="{{contestants[6]}}">{{contestants[6]}}
         </label>
+      </div>
+      <div>
         <label class="radio-inline">
           <input type="radio" name="setFour"
           [(ngModel)]="contestants[7]" value="{{contestants[7]}}">{{contestants[7]}}
