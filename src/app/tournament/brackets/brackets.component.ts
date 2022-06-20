@@ -11,21 +11,25 @@ export class BracketsComponent {
   public roundNumber : number;
   public winners : string[];
   public message : string;
+  public isShown: boolean;
 
   constructor(private rosterService: RosterService) {
     this.contestants = this.rosterService.getContestants();
     this.roundNumber = 1;
     this.winners = [];
+    this.isShown = true;
   }
 
   completeRound(matchForm) {
     console.log("Number of winners is " + this.winners.length + "which is " + this.winners);
-
+    this.isShown = true;
     if(this.winners.length == 1) {
       this.message = "Winner: " + this.winners[0];
       this.winners = [];
       this.rosterService.resetContestants();
+      this.contestants = this.rosterService.getContestants();
       this.roundNumber = 1;
+      this.isShown = false;
     } else if (this.winners.length == 2) {
       this.rosterService.resetContestants();
       this.rosterService.addContestant(this.winners[0]);

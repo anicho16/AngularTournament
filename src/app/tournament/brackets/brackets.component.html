@@ -1,6 +1,6 @@
-<h1>Round: {{roundNumber}}</h1>
-<p>{{message}}</p>
-<div *ngIf="roundNumber == 1" class=form-group>
+<h1 *ngIf="isShown">Round: {{roundNumber}}</h1>
+<h3>{{message}}</h3>
+<div *ngIf="roundNumber == 1 && contestants.length > 0" class=form-group>
   <form #matchForm="ngForm" (ngSubmit)="completeRound(matchForm)">
     <div *ngIf="contestants.length >= 2" class="match-one">
       <h3>Match 1</h3>

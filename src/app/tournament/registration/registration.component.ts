@@ -11,7 +11,6 @@ export class RegistrationComponent {
 
   public players: string[];
   public message: string;
-
   public isShown: boolean;
 
   constructor(private rosterService: RosterService) {
@@ -64,12 +63,12 @@ export class RegistrationComponent {
 
   autofillFour() {
     this.players = ["Mario", "Luigi", "Peach", "Daisy"];
-    console.log("Autofill 2: " + this.players);
+    console.log("Autofill 4: " + this.players);
   }
 
   autofillEight() {
     this.players = ["Mario", "Luigi", "Peach", "Daisy", "DK", "Toad", "Yoshi", "Toadette"];
-    console.log("Autofill 2: " + this.players);
+    console.log("Autofill 8: " + this.players);
   }
 
 }
