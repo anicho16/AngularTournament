@@ -1,4 +1,5 @@
 <h1>Round: {{roundNumber}}</h1>
+<p>{{message}}</p>
 <div *ngIf="roundNumber == 1" class=form-group>
   <form #matchForm="ngForm" (ngSubmit)="completeRound(matchForm)">
     <div *ngIf="contestants.length >= 2" class="match-one">
@@ -56,7 +57,7 @@
       <div>
         <label class="radio-inline">
           <input type="radio" name="setFour"
-          [(ngModel)]="winners[4]" value="{{contestants[7]}}">{{contestants[7]}}
+          [(ngModel)]="winners[3]" value="{{contestants[7]}}">{{contestants[7]}}
         </label>
       </div>
     </div>
@@ -72,13 +73,13 @@
       <div>
         <label class="radio-inline">
           <input type="radio" name="setOne"
-          [(ngModel)]="winners[5]" value="{{contestants[0]}}">{{contestants[0]}}
+          [(ngModel)]="winners[0]" value="{{contestants[0]}}">{{contestants[0]}}
         </label>
       </div>
       <div>
         <label class="radio-inline">
           <input type="radio" name="setOne"
-          [(ngModel)]="winners[5]" value="{{contestants[1]}}">{{contestants[1]}}
+          [(ngModel)]="winners[0]" value="{{contestants[1]}}">{{contestants[1]}}
         </label>
       </div>
     </div>
@@ -87,13 +88,34 @@
       <div>
         <label class="radio-inline">
           <input type="radio" name="setTwo"
-          [(ngModel)]="winners[6]" value="{{contestants[2]}}">{{contestants[2]}}
+          [(ngModel)]="winners[1]" value="{{contestants[2]}}">{{contestants[2]}}
         </label>
       </div>
       <div>
         <label class="radio-inline">
           <input type="radio" name="setTwo"
-          [(ngModel)]="winners[6]" value="{{contestants[3]}}">{{contestants[3]}}
+          [(ngModel)]="winners[1]" value="{{contestants[3]}}">{{contestants[3]}}
+        </label>
+      </div>
+    </div>
+    <button type="submit">Complete Round</button>
+  </form>
+</div>
+
+<div *ngIf="roundNumber == 3" class=form-group>
+  <form #matchForm="ngForm" (ngSubmit)="completeRound(matchForm)">
+    <div *ngIf="contestants.length >= 2" class="match-one">
+      <h3>Final Match</h3>
+      <div>
+        <label class="radio-inline">
+          <input type="radio" name="setOne"
+          [(ngModel)]="winners[0]" value="{{contestants[0]}}">{{contestants[0]}}
+        </label>
+      </div>
+      <div>
+        <label class="radio-inline">
+          <input type="radio" name="setOne"
+          [(ngModel)]="winners[0]" value="{{contestants[1]}}">{{contestants[1]}}
         </label>
       </div>
     </div>
