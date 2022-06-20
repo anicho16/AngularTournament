@@ -23,6 +23,9 @@ export class BracketsComponent {
 
     if(this.winners.length == 1) {
       this.message = "Winner: " + this.winners[0];
+      this.winners = [];
+      this.rosterService.resetContestants();
+      this.roundNumber = 1;
     } else if (this.winners.length == 2) {
       this.rosterService.resetContestants();
       this.rosterService.addContestant(this.winners[0]);
@@ -36,6 +39,7 @@ export class BracketsComponent {
       this.rosterService.addContestant(this.winners[1]);
       this.rosterService.addContestant(this.winners[2]);
       this.rosterService.addContestant(this.winners[3]);
+      this.winners = [];
       this.contestants = this.rosterService.getContestants();
       this.roundNumber++;
     }
