@@ -23,15 +23,14 @@ export class RegistrationComponent {
   registerContestants(playersForm){
     this.message = "";
     if (playersForm.invalid) {
-      this.message = 'Please correct all errors and resubmit the form';
+      this.message = 'Error. Please enter players again.';
       this.rosterService.resetContestants();
       this.isShown = false;
-      this.players = [];
+      this.players = ['', '', '', '', '', '', '', ''];
     } else {
       console.log(this.players);
       for(let player of this.players) {
         this.rosterService.addContestant(player);
-        //this.message.concat(player);
         this.isShown = true;
       }
 
@@ -58,5 +57,19 @@ export class RegistrationComponent {
     return index;
   }
 
+  autofillTwo() {
+    this.players = ["Mario", "Luigi"];
+    console.log("Autofill 2: " + this.players);
+  }
+
+  autofillFour() {
+    this.players = ["Mario", "Luigi", "Peach", "Daisy"];
+    console.log("Autofill 2: " + this.players);
+  }
+
+  autofillEight() {
+    this.players = ["Mario", "Luigi", "Peach", "Daisy", "DK", "Toad", "Yoshi", "Toadette"];
+    console.log("Autofill 2: " + this.players);
+  }
 
 }
