@@ -11,11 +11,8 @@
         <input type="text"
         [(ngModel)] ="players[i]"
         placeholder="Contestant {{i}}"
-        name = 'player'
+        name = 'player{{i}}'
         required/>
-        <div class="error" *ngIf="(player.dirty  || message) && player.invalid">
-          Player name is required
-        </div>
       </div>
     </div>
     <button type="submit">Register Contestants</button>

@@ -5,7 +5,7 @@ import { RegistrationComponent } from '../tournament/registration/registration.c
 
 
 describe('RosterService', () => {
-  let service: RosterService;
+  let rosterService: RosterService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -14,21 +14,21 @@ describe('RosterService', () => {
     service = TestBed.inject(RosterService);
   });
 
-  it('should be created', inject([RosterService], (service) => {
+  it('should be created', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should not allow duplicate names', inject([RosterService], (service)  => {
-    const appComponent = new RosterService();
-    appComponent.addContestant("Steve");
-    appComponent.addContestant("Steve");
-    expect(appComponent.addContestant("Steve")).toThrowError(Error, "Player already exists.");
+  it('should not allow duplicate names', () => {
+    rosterService.addContestant("Steve");
+    rosterService.addContestant("Steve");
+    expect(() => rosterService.getErrorMessage().toEqual("Player name cannot be empty.");
   }));
 
-  it('should not allow null names', inject([RosterService], (service)  => {
+  it('should not allow null names', ())  => {
     const appComponent = new RosterService();
     appComponent.addContestant(null);
     expect(appComponent.getContestants[0]).toEqual(undefined);
+    expect(() => rosterService.getErrorMessage().toEqual("Cannot enter duplicate name.");
   }));
 
   it('should not allow empty string names', inject([RosterService], (service)  => {

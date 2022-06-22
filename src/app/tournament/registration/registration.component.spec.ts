@@ -16,10 +16,17 @@ describe('RegistrationComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(RegistrationComponent);
     component = fixture.componentInstance;
+    service = fixture.debugElement.injector.get(RosterService);
     fixture.detectChanges();
+    fixture.autoDetectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should not allow duplicate names', () => {
+    rosterService.addContestant("Steve");
+    expect(() => rosterService.addContestant("Steve")).toThrowError(Error, "Player already exists.");
+  }));
 });
