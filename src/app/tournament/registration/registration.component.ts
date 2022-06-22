@@ -20,6 +20,7 @@ export class RegistrationComponent {
   }
 
   registerContestants(playersForm){
+    this.message = '';
     for(let player of this.players) {
       this.rosterService.addContestant(player);
       this.isShown = true;
