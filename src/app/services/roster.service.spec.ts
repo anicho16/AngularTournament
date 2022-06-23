@@ -10,39 +10,39 @@ describe('RosterService', () => {
   }));
 
   beforeEach(inject([RosterService], (service: RosterService) => {
-    this.rosterService = service;
+    rosterService = service;
   }));
 
   it('should be created', () => {
-    expect(this.rosterService).toBeTruthy();
+    expect(rosterService).toBeTruthy();
   });
 
   it('should not allow duplicate names', () => {
-    this.rosterService.addContestant("Steve");
-    this.rosterService.addContestant("Steve");
-    expect(this.rosterService.getContestants().length).toEqual(1);
-    expect(this.rosterService.getErrorMessage()).toEqual("Cannot enter duplicate name.");
+    rosterService.addContestant("Steve");
+    rosterService.addContestant("Steve");
+    expect(rosterService.getContestants().length).toEqual(1);
+    expect(rosterService.getErrorMessage()).toEqual("Cannot enter duplicate name.");
   });
 
   it('should not allow null names', ()  => {
-    this.rosterService.addContestant(null);
-    expect(this.rosterService.getContestants().length).toEqual(0);
+    rosterService.addContestant(null);
+    expect(rosterService.getContestants().length).toEqual(0);
   });
 
   it('should not allow empty string names', ()  => {
-    this.rosterService.addContestant("");
-    expect(this.rosterService.getContestants().length).toEqual(0);
+    rosterService.addContestant("");
+    expect(rosterService.getContestants().length).toEqual(0);
   });
 
   it('should add one contestant', ()  => {
-    this.rosterService.addContestant("Steve");
-    expect(this.rosterService.getContestants().length).toEqual("Steve");
+    rosterService.addContestant("Steve");
+    expect(rosterService.getContestants().length).toEqual(1);
   });
 
   it('should add several contestants', ()  => {
-    this.rosterService.addContestant("Steve");
-    this.rosterService.addContestant("James");
-    let results = this.rosterService.getContestants();
+    rosterService.addContestant("Steve");
+    rosterService.addContestant("James");
+    let results = rosterService.getContestants();
     expect(results[1]).toEqual("James");
   });
 });

@@ -48,8 +48,8 @@ describe('BracketsComponent', () => {
   it('should have one winner after rounds with four beginning players', () => {
     component.contestants = ["Jared", "Nick", "Bobby", "Yuna"];
     component.completeRound(component.contestants);
-    component.completeRound(component.contestants);
     component.winners = ["Jared"];
+    component.completeRound(component.contestants);
     expect(component.roundNumber).toBe(1);
     expect(component.message).toBe("Winner: Jared");
   });
