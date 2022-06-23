@@ -21,7 +21,6 @@ export class BracketsComponent {
   }
 
   completeRound(matchForm) {
-    console.log("Number of winners is " + this.winners.length + "which is " + this.winners);
     this.isShown = true;
     if(this.winners.length == 1) {
       this.message = "Winner: " + this.winners[0];

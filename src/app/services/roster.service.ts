@@ -21,7 +21,7 @@ export class RosterService {
     return this.contestants;
   }
 
-  getErrorMessagae() {
+  getErrorMessage() {
     return this.errorMessage;
   }
 

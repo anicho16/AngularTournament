@@ -1,52 +1,48 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { RosterService } from './roster.service';
-import { RegistrationComponent } from '../tournament/registration/registration.component';
-
 
 describe('RosterService', () => {
   let rosterService: RosterService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [RosterService]
-    });
-    service = TestBed.inject(RosterService);
-  });
+  beforeEach(() => TestBed.configureTestingModule({
+    providers: [RosterService]
+  }));
+
+  beforeEach(inject([RosterService], (service: RosterService) => {
+    this.rosterService = service;
+  }));
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
-  }));
+    expect(this.rosterService).toBeTruthy();
+  });
 
   it('should not allow duplicate names', () => {
-    rosterService.addContestant("Steve");
-    rosterService.addContestant("Steve");
-    expect(() => rosterService.getErrorMessage().toEqual("Player name cannot be empty.");
-  }));
+    this.rosterService.addContestant("Steve");
+    this.rosterService.addContestant("Steve");
+    expect(this.rosterService.getContestants().length).toEqual(1);
+    expect(this.rosterService.getErrorMessage()).toEqual("Cannot enter duplicate name.");
+  });
 
-  it('should not allow null names', ())  => {
-    const appComponent = new RosterService();
-    appComponent.addContestant(null);
-    expect(appComponent.getContestants[0]).toEqual(undefined);
-    expect(() => rosterService.getErrorMessage().toEqual("Cannot enter duplicate name.");
-  }));
+  it('should not allow null names', ()  => {
+    this.rosterService.addContestant(null);
+    expect(this.rosterService.getContestants().length).toEqual(0);
+  });
 
-  it('should not allow empty string names', inject([RosterService], (service)  => {
-    const appComponent = new RosterService();
-    appComponent.addContestant("");
-    expect(appComponent.getContestants[0]).toEqual(undefined);
-  }));
+  it('should not allow empty string names', ()  => {
+    this.rosterService.addContestant("");
+    expect(this.rosterService.getContestants().length).toEqual(0);
+  });
 
-  it('should add one contestant', inject([RosterService], (service)  => {
-    const appComponent = new RosterService();
-    appComponent.addContestant("Steve");
-    expect(appComponent.getContestants[0]).toEqual("Steve");
-  }));
+  it('should add one contestant', ()  => {
+    this.rosterService.addContestant("Steve");
+    expect(this.rosterService.getContestants().length).toEqual("Steve");
+  });
 
-  it('should add several contestants', inject([RosterService], (service)  => {
-    const appComponent = new RosterService();
-    appComponent.addContestant("Steve");
-    appComponent.addContestant("James");
-    expect(appComponent.getContestants[1]).toEqual("James");
-  }));
+  it('should add several contestants', ()  => {
+    this.rosterService.addContestant("Steve");
+    this.rosterService.addContestant("James");
+    let results = this.rosterService.getContestants();
+    expect(results[1]).toEqual("James");
+  });
 });
